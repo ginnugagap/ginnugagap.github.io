@@ -20636,7 +20636,6 @@ cr.getObjectRefTable = function () { return [
 	cr.plugins_.Rex_DungeonGen.prototype.cnds.TileType,
 	cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
 	cr.plugins_.Rex_DungeonGen.prototype.cnds.IsCorridorType,
-	cr.plugins_.Sprite.prototype.acts.Spawn,
 	cr.plugins_.Rex_EventBalancer.prototype.cnds.OnStop,
 	cr.plugins_.Rex_DungeonGen.prototype.cnds.ForEachRoom,
 	cr.plugins_.Rex_DungeonGen.prototype.exps.CurRoomLeft,
