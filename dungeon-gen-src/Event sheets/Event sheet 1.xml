@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="1" name="DUN_W" sid="334794760507297" static="0" type="number">60</variable>
+        <variable constant="1" name="dun_h" sid="156528711723285" static="0" type="number">45</variable>
+        <variable constant="0" name="end_pt" sid="645210400784704" static="0" type="number">0</variable>
+        <variable constant="0" name="start_pt" sid="156146708851324" static="0" type="number">0</variable>
+        <event-block sid="558831291084495">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="206860163956611" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="899660943669191" type="Sprite6" />
+                <action id="-9" name="Destroy" sid="441054280681230" type="Sprite7" />
+                <action id="11" name="Setup layout" sid="368199159484643" type="Board">
+                    <param id="0" name="Layout">SquareTx</param>
+                </action>
+                <action id="0" name="Call function" sid="847538891483920" type="Function">
+                    <param id="0" name="Name">&quot;ReGen&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="568916984866567">
+            <conditions>
+                <condition id="0" name="On function" sid="308422759902894" type="Function">
+                    <param id="0" name="Name">&quot;ReGen&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="2" name="Uniform" sid="921184088452400" type="DungeonGen">
+                    <param id="0" name="Width">dun_w</param>
+                    <param id="1" name="Height">dun_h</param>
+                    <param id="2" name="Seed">random(3)</param>
+                    <param id="3" name="Room minimum width">3</param>
+                    <param id="4" name="Room maximum width">9</param>
+                    <param id="5" name="Room minimum height">3</param>
+                    <param id="6" name="Room maximum height">5</param>
+                    <param id="7" name="Dug percentage">0.1</param>
+                    <param id="8" name="Time limit">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="540096198209094">
+            <conditions>
+                <condition id="2" name="On completed" sid="431087604228462" type="DungeonGen" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="347789921650502" type="Function">
+                    <param id="0" name="Name">&quot;placement&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="933334862954142" type="System">
+                    <param id="0" name="Variable">start_pt</param>
+                    <param id="1" name="Value">int(random(DungeonGen.RoomsCount))</param>
+                </action>
+                <action id="-9" name="Set value" sid="175799034038715" type="System">
+                    <param id="0" name="Variable">end_pt</param>
+                    <param id="1" name="Value">int(random(DungeonGen.RoomsCount))</param>
+                </action>
+                <action disabled="1" id="-3" name="Create object" sid="816780531823487" type="System">
+                    <param id="0" name="Object to create">Sprite6</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">SquareTx.LXY2PX(DungeonGen.RoomCenterX(start_pt), DungeonGen.RoomCenterY(start_pt))</param>
+                    <param id="3" name="Y">SquareTx.LXY2PY(DungeonGen.RoomCenterX(start_pt), DungeonGen.RoomCenterY(start_pt))</param>
+                </action>
+                <action disabled="1" id="-3" name="Create object" sid="536479614364909" type="System">
+                    <param id="0" name="Object to create">Sprite7</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">SquareTx.LXY2PX(DungeonGen.RoomCenterX(end_pt), DungeonGen.RoomCenterY(end_pt))</param>
+                    <param id="3" name="Y">SquareTx.LXY2PY(DungeonGen.RoomCenterX(end_pt), DungeonGen.RoomCenterY(end_pt))</param>
+                </action>
+                <action id="14" name="Create chess" sid="310435181426429" type="Board">
+                    <param id="0" name="Chess">Sprite6</param>
+                    <param id="1" name="Logic X">DungeonGen.roomcenterX(start_pt)</param>
+                    <param id="2" name="Logic Y">dungeongen.roomcenterY(start_pt)</param>
+                    <param id="3" name="Logic Z">1</param>
+                    <param id="4" name="Layer">0</param>
+                </action>
+                <action id="14" name="Create chess" sid="672736287391046" type="Board">
+                    <param id="0" name="Chess">Sprite7</param>
+                    <param id="1" name="Logic X">DungeonGen.roomcenterX(end_pt)</param>
+                    <param id="2" name="Logic Y">dungeongen.roomcenterY(end_pt)</param>
+                    <param id="3" name="Logic Z">1</param>
+                    <param id="4" name="Layer">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="939835131741786">
+            <conditions>
+                <condition id="0" name="On function" sid="158744548441000" type="Function">
+                    <param id="0" name="Name">&quot;placement&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="225881139641081">
+                    <conditions>
+                        <condition id="-10" name="For" sid="468535621296107" type="System">
+                            <param id="0" name="Name">&quot;dug_y&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">DungeonGen.MapHeight-1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="186651224562405">
+                            <conditions>
+                                <condition id="-10" name="For" sid="327776819624479" type="System">
+                                    <param id="0" name="Name">&quot;dug_x&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">DungeonGen.MapWidth-1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="750210934595521">
+                                    <conditions>
+                                        <condition id="11" name="Tile type" sid="976215636829035" type="DungeonGen">
+                                            <param id="0" name="X">loopindex(&quot;dug_x&quot;)</param>
+                                            <param id="1" name="Y">loopindex(&quot;dug_y&quot;)</param>
+                                            <param id="2" name="Type">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="-3" name="Create object" sid="250174728959858" type="System">
+                                            <param id="0" name="Object to create">Sprite</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">SquareTx.LXY2PX(loopindex(&quot;dug_x&quot;), loopindex(&quot;dug_y&quot;))</param>
+                                            <param id="3" name="Y">SquareTx.LXY2PY(loopindex(&quot;dug_x&quot;), loopindex(&quot;dug_y&quot;))</param>
+                                        </action>
+                                        <action id="12" name="Create tile" sid="755610539080659" type="Board">
+                                            <param id="0" name="Tile">Sprite</param>
+                                            <param id="1" name="Logic X">loopindex(&quot;dug_x&quot;)</param>
+                                            <param id="2" name="Logic Y">loopindex(&quot;dug_y&quot;)</param>
+                                            <param id="3" name="Layer">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="857606883252706">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="862239931545205" type="System" />
+                                        <condition id="11" name="Tile type" sid="759311827183292" type="DungeonGen">
+                                            <param id="0" name="X">loopindex(&quot;dug_x&quot;)</param>
+                                            <param id="1" name="Y">loopindex(&quot;dug_y&quot;)</param>
+                                            <param id="2" name="Type">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="-3" name="Create object" sid="505986333491826" type="System">
+                                            <param id="0" name="Object to create">Sprite2</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">SquareTx.LXY2PX(loopindex(&quot;dug_x&quot;), loopindex(&quot;dug_y&quot;))</param>
+                                            <param id="3" name="Y">SquareTx.LXY2PY(loopindex(&quot;dug_x&quot;), loopindex(&quot;dug_y&quot;))</param>
+                                        </action>
+                                        <action id="12" name="Create tile" sid="941809048623167" type="Board">
+                                            <param id="0" name="Tile">Sprite2</param>
+                                            <param id="1" name="Logic X">loopindex(&quot;dug_x&quot;)</param>
+                                            <param id="2" name="Logic Y">loopindex(&quot;dug_y&quot;)</param>
+                                            <param id="3" name="Layer">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="500736655058542">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="344035490659203" type="System" />
+                                        <condition id="11" name="Tile type" sid="676736037006845" type="DungeonGen">
+                                            <param id="0" name="X">loopindex(&quot;dug_x&quot;)</param>
+                                            <param id="1" name="Y">loopindex(&quot;dug_y&quot;)</param>
+                                            <param id="2" name="Type">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="-3" name="Create object" sid="655181148759337" type="System">
+                                            <param id="0" name="Object to create">Sprite3</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">SquareTx.LXY2PX(loopindex(&quot;dug_x&quot;), loopindex(&quot;dug_y&quot;))</param>
+                                            <param id="3" name="Y">SquareTx.LXY2PY(loopindex(&quot;dug_x&quot;), loopindex(&quot;dug_y&quot;))</param>
+                                        </action>
+                                        <action id="12" name="Create tile" sid="488527627586130" type="Board">
+                                            <param id="0" name="Tile">Sprite3</param>
+                                            <param id="1" name="Logic X">loopindex(&quot;dug_x&quot;)</param>
+                                            <param id="2" name="Logic Y">loopindex(&quot;dug_y&quot;)</param>
+                                            <param id="3" name="Layer">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="932117719046071">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="387087446826621" type="System" />
+                                        <condition id="11" name="Tile type" sid="605087494362715" type="DungeonGen">
+                                            <param id="0" name="X">loopindex(&quot;dug_x&quot;)</param>
+                                            <param id="1" name="Y">loopindex(&quot;dug_y&quot;)</param>
+                                            <param id="2" name="Type">4</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="-3" name="Create object" sid="887036323196653" type="System">
+                                            <param id="0" name="Object to create">Sprite4</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">SquareTx.LXY2PX(loopindex(&quot;dug_x&quot;), loopindex(&quot;dug_y&quot;))</param>
+                                            <param id="3" name="Y">SquareTx.LXY2PY(loopindex(&quot;dug_x&quot;), loopindex(&quot;dug_y&quot;))</param>
+                                        </action>
+                                        <action id="12" name="Create tile" sid="315132288853791" type="Board">
+                                            <param id="0" name="Tile">Sprite4</param>
+                                            <param id="1" name="Logic X">loopindex(&quot;dug_x&quot;)</param>
+                                            <param id="2" name="Logic Y">loopindex(&quot;dug_y&quot;)</param>
+                                            <param id="3" name="Layer">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="934581680511451">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="910210390488704" type="System" />
+                                        <condition id="11" name="Tile type" sid="470581750616336" type="DungeonGen">
+                                            <param id="0" name="X">loopindex(&quot;dug_x&quot;)</param>
+                                            <param id="1" name="Y">loopindex(&quot;dug_y&quot;)</param>
+                                            <param id="2" name="Type">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="-3" name="Create object" sid="644066812080705" type="System">
+                                            <param id="0" name="Object to create">Sprite5</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="X">SquareTx.LXY2PX(loopindex(&quot;dug_x&quot;), loopindex(&quot;dug_y&quot;))</param>
+                                            <param id="3" name="Y">SquareTx.LXY2PY(loopindex(&quot;dug_x&quot;), loopindex(&quot;dug_y&quot;))</param>
+                                        </action>
+                                        <action id="12" name="Create tile" sid="220972861825354" type="Board">
+                                            <param id="0" name="Tile">Sprite5</param>
+                                            <param id="1" name="Logic X">loopindex(&quot;dug_x&quot;)</param>
+                                            <param id="2" name="Logic Y">loopindex(&quot;dug_y&quot;)</param>
+                                            <param id="3" name="Layer">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="786768552133692">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="320231903338242">
+            <conditions>
+                <condition id="0" name="On clicked" sid="892570779958664" type="Button" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="110641896359281" type="Function">
+                    <param id="0" name="Name">&quot;ReGen&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="819797902981469">
+            <conditions>
+                <condition id="3" name="On button released" sid="499149236101272" type="Mouse">
+                    <param id="0" name="Mouse button">2</param>
+                </condition>
+                <condition disabled="1" id="11" name="Tile type" sid="986712195986533" type="DungeonGen">
+                    <param id="0" name="X">DungeonGen.MapWidth</param>
+                    <param id="1" name="Y">DungeonGen.MapHeight</param>
+                    <param id="2" name="Type">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Set text" sid="435846660252557" type="Text">
+                    <param id="0" name="Text">str(SquareTx.PXY2LX(mouse.X, Mouse.Y))</param>
+                </action>
+                <action disabled="1" id="0" name="Set text" sid="580329112329447" type="Text2">
+                    <param id="0" name="Text">str(SquareTx.PXY2LY(mouse.X, mouse.Y))</param>
+                </action>
+                <action disabled="1" id="0" name="Set text" sid="675628048490003" type="Text">
+                    <param id="0" name="Text">str(SquareTx.LXY2PX(0, 0))</param>
+                </action>
+                <action disabled="1" id="0" name="Set text" sid="293744831897483" type="Text2">
+                    <param id="0" name="Text">str(SquareTx.LXY2PX(1, 0))</param>
+                </action>
+                <action disabled="1" id="-3" name="Create object" sid="681604246258312" type="System">
+                    <param id="0" name="Object to create">Sprite4</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="826460062028252">
+            <conditions>
+                <condition id="3" name="On key released" sid="769108822260169" type="Keyboard">
+                    <param id="0" name="Key">38</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="GridMove" id="1" name="Move to neighbor" sid="456793549042352" type="Sprite6">
+                    <param id="0" name="Direction">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="445587137674429">
+            <conditions>
+                <condition id="3" name="On key released" sid="874969548976432" type="Keyboard">
+                    <param id="0" name="Key">40</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="GridMove" id="1" name="Move to neighbor" sid="822796295129457" type="Sprite6">
+                    <param id="0" name="Direction">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="139872575321015">
+            <conditions>
+                <condition id="3" name="On key released" sid="936212980158894" type="Keyboard">
+                    <param id="0" name="Key">37</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="GridMove" id="1" name="Move to neighbor" sid="393555172702689" type="Sprite6">
+                    <param id="0" name="Direction">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="532466530774282">
+            <conditions>
+                <condition id="3" name="On key released" sid="927474992123336" type="Keyboard">
+                    <param id="0" name="Key">39</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="GridMove" id="1" name="Move to neighbor" sid="390489904162917" type="Sprite6">
+                    <param id="0" name="Direction">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

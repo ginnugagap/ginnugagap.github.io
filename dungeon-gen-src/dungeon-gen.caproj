@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>dungeon-gen</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>2m2oqhlgof90t</unique-id>
+    <saved-with-version>25200</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_DungeonGen" version="0.100000001">Dungeon gen</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_SLGBoard" version="0.100000001">Board</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_SLGSquareTx" version="0.100000001">Square Tx</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Rex.Rainbow" id="Rex_GridMove" version="0.100000001">Grid Move</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>1280</width>
+        <height>720</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Off</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Nothing (not recommended)</prop>
+        <prop name="Orientations">Landscape</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type global="1" name="DungeonGen" sid="768557956962911">
+            <plugin id="Rex_DungeonGen" />
+        </object-type>
+        <object-type name="Button" sid="308343113433393">
+            <plugin id="Button" />
+        </object-type>
+        <object-type global="1" name="SquareTx" sid="606028773040257">
+            <plugin id="Rex_SLGSquareTx" />
+        </object-type>
+        <object-type name="Mouse" sid="563805264750860">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Keyboard" sid="138537374530301">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Sprite" sid="490816832644713">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="389137196408591" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\Construct2-Resources\Materials\List of vanilla NetHack tiles.files\image758.gif" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Text" sid="248244457858325">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Text2" sid="927956445609044">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Function" sid="362895277920454">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="Sprite2" sid="998225544995907">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="886416876230617">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="301236221900495" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\Construct2-Resources\Materials\List of vanilla NetHack tiles.files\image767.gif" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite3" sid="799237456492656">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="613843525772256" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\Construct2-Resources\Materials\nethack-3.4.3-16x16.png">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite4" sid="893823433513411">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="395979788512480">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="634507664551365" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\Construct2-Resources\Materials\List of vanilla NetHack tiles.files\image782.gif" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite5" sid="447816721147367">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="148962605146581" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\Construct2-Resources\Materials\List of vanilla NetHack tiles.files\image781.gif" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite6" sid="645996983883692">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="964371422594736">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="GridMove" sid="955143525018072">
+                    <behavior id="Rex_GridMove" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="341161381686303" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\Construct2-Resources\Materials\List of vanilla NetHack tiles.files\image009.gif">
+                        <collision-poly>
+                            <point x="0.111111" y="0.111111" />
+                            <point x="0.833333" y="0.111111" />
+                            <point x="0.833333" y="0.888889" />
+                            <point x="0.111111" y="0.888889" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite7" sid="948629865959389">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="841961109189113">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="844472227280473" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="F:\Construct2-Resources\Materials\List of vanilla NetHack tiles.files\image753.gif" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="Board" sid="338471089722024">
+            <plugin id="Rex_SLGBoard" />
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Mouse" uid="3" />
+        <global-instance type="Keyboard" uid="4" />
+        <global-instance type="Function" uid="8" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons" />
+    </files-folder>
+</c2project>

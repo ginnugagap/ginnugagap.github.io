@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1520227455,
+	"version": 1520328811,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -10,12 +10,8 @@
 		"images/sprite3-sheet0.png",
 		"images/sprite4-sheet0.png",
 		"images/sprite5-sheet0.png",
-		"icon-16.png",
-		"icon-32.png",
-		"icon-114.png",
-		"icon-128.png",
-		"icon-256.png",
-		"loading-logo.png",
+		"images/sprite6-sheet0.png",
+		"images/sprite7-sheet0.png",
 		"dungeongen.js"
 	]
 }
